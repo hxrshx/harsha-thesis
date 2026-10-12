@@ -1,0 +1,86 @@
+%% ============================================================
+%%  Master's Thesis — THWS, Faculty of Computer Science and
+%%  Business Information Systems
+%%
+%%  Compile with pdfLaTeX + Biber (Overleaf: Menu -> Compiler -> pdfLaTeX).
+%%  Edit your details in config/metadata.tex,
+%%  your chapters in chapters/, acronyms in config/acronyms.tex.
+%% ============================================================
+\documentclass[12pt,twoside=false,a4paper,parskip]{scrbook}
+% For double-sided printing use this line instead (keep openright):
+% \documentclass[12pt,twoside,a4paper,parskip,openright]{scrbook}
+
+\input{config/metadata}   % name, title, examiners
+\input{config/preamble}   % packages and settings
+\input{config/listings}   % code styles (Cypher, Python, JSON, Java)
+\input{config/acronyms}   % acronym definitions
+
+%% While writing, compile only the chapter you are working on
+%% (uncomment and adjust). Page numbers and references stay correct.
+% \includeonly{chapters/04-solution}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%
+%% Front matter
+%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\input{frontmatter/titlepage}
+\include{frontmatter/abstract}
+\include{frontmatter/acknowledgements}
+
+\tableofcontents
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Acronyms}
+\printacronyms[name=List of Acronyms]
+
+%%%%%%%%%%%%%%%%%%%
+%% Main part
+%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\include{chapters/01-introduction}
+\include{chapters/02-fundamentals}
+\include{chapters/03-problem-statement}
+\include{chapters/04-solution}
+\include{chapters/05-evaluation}
+\include{chapters/06-conclusion}
+
+%%%%%%%%%%%%%%%%%%%
+%% Appendix
+%%%%%%%%%%%%%%%%%%%
+\appendix
+\include{appendix/appendix}
+
+%%%%%%%%%%%%%%%%%%%
+%% Back matter: lists, bibliography, declarations
+%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Listings}
+\lstlistoflistings
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+\include{backmatter/declaration}
+
+% Shows all open \todo notes. Remove before submission.
+% \listoftodos
+
+\end{document}

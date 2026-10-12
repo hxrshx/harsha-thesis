@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%
+%% Packages
+%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{csquotes}                 % load after babel
+\usepackage{graphicx}
+\graphicspath{{figures/}{./}}         % images are found in figures/ or the main folder
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{nicefrac}
+\usepackage{scrhack}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage[verbose]{placeins}
+\usepackage[markcase=ignoreuppercase,headsepline,plainfootsepline]{scrlayer-scrpage}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[htt]{hyphenat}            % allows line breaks in \texttt
+
+%% Margin notes while drafting: \todo{...} and \todo[inline]{...}
+%% Before submission switch to: \usepackage[disable]{todonotes}
+\usepackage[colorinlistoftodos,textsize=small]{todonotes}
+
+%% Acronyms: \ac{llm} -> "Large Language Model (LLM)" first time, "LLM" after
+\usepackage{acro}
+\acsetup{
+  make-links = true,
+  list/display = all,
+  list/sort = true
+}
+
+%% Bibliography (Biber backend)
+\usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
+\addbibresource{literatur.bib}
+
+%% Load hyperref and cleveref last
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{listing}{Listing}{Listings}
+\Crefname{listing}{Listing}{Listings}
+\crefname{lstlisting}{Listing}{Listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+\hypersetup{
+  pdfauthor={\ShowBaAuthor},
+  pdftitle={\BaTitle},
+  pdfsubject={\BaType},
+  pdfkeywords={Text2Cypher, Knowledge Graph, Large Language Models, FMEA, 8D}
+}
+
+%%%%%%%%%%%%%%%%%%%
+%% Title page helper (from the THWS template)
+%%%%%%%%%%%%%%%%%%%
+\newcommand*{\forcetwosidetitle}[1][1]{%
+ \begingroup
+   \cleardoubleoddpage
+   \KOMAoptions{titlepage=true}%
+   \csname @twosidetrue\endcsname
+   \maketitle[{#1}]
+ \endgroup
+}

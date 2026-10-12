@@ -1,0 +1,42 @@
+\chapter{Solution}\label{ch:solution}
+
+TODO
+
+\section{Graph Schema}\label{sec:solution_schema}
+
+\Cref{lst:cypher-example} shows an example Cypher query.
+
+\begin{lstlisting}[language=Cypher,
+                   caption={Example Cypher query (placeholder).},
+                   label={lst:cypher-example}]
+// Find failure modes linked to a component
+MATCH (c:Component {name: $component})<-[:AFFECTS]-(f:FailureMode)
+OPTIONAL MATCH (f)-[:CAUSED_BY]->(cause:Cause)
+RETURN f.description AS failureMode,
+       collect(DISTINCT cause.description) AS causes
+ORDER BY failureMode
+LIMIT 10
+\end{lstlisting}
+
+\section{Agent Architecture}\label{sec:solution_agent}
+
+\Cref{lst:python-example} shows an example in Python.
+
+\begin{lstlisting}[style=python,
+                   caption={Example Python code (placeholder).},
+                   label={lst:python-example}]
+def run_query(driver, cypher: str, params: dict) -> list[dict]:
+    """Execute a Cypher query and return the records."""
+    with driver.session() as session:
+        result = session.run(cypher, params)
+        return [record.data() for record in result]
+\end{lstlisting}
+
+A prompt can be shown with the \texttt{prompt} style:
+
+\begin{lstlisting}[style=prompt,
+                   caption={Example prompt (placeholder).},
+                   label={lst:prompt-example}]
+You are an expert in Neo4j Cypher. Given the schema below,
+translate the user's question into a single Cypher query.
+\end{lstlisting}

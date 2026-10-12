@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%
+%% Title page
+%%%%%%%%%%%%%%%%%%%
+\titlehead{%
+  {Technische Hochschule Würzburg-Schweinfurt\\
+   Faculty of Computer Science and Business Information Systems}}
+\subject{\BaType}
+\title{\BaTitle\\[15mm]}
+\subtitle{\normalsize{Submitted to the Technische Hochschule Würzburg-Schweinfurt, Faculty of Computer Science and Business Information Systems, in partial fulfilment of the requirements for the degree of Master of Science in \BaAuthorStudyProgram}}
+\author{\ShowBaAuthor}
+\date{\normalsize{Submitted on: \BaDeadline}}
+\publishers{
+  \normalsize{First examiner: \BaSupervisorOne}\\
+  \normalsize{Second examiner: \BaSupervisorTwo}\\[5mm]
+  \normalsize{Written in cooperation with \BaCompany}\\
+}
+
+%% Barcode on the back of the title page.
+%% Shown automatically if barcode_default.png is in figures/ or the main folder.
+\IfFileExists{figures/barcode_default.png}{%
+  \lowertitleback{\centering\includegraphics[width=4cm]{barcode_default}}%
+}{%
+  \IfFileExists{barcode_default.png}{%
+    \lowertitleback{\centering\includegraphics[width=4cm]{barcode_default}}%
+  }{}%
+}
+
+\forcetwosidetitle

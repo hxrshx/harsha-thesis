@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%
+%% Code listing styles
+%%
+%% Usage:
+%%   \begin{lstlisting}[language=Cypher, caption={...}, label={lst:...}]
+%%   \begin{lstlisting}[language=Python, caption={...}, label={lst:...}]
+%%   \begin{lstlisting}[language=json,   caption={...}, label={lst:...}]
+%%   Inline:  \lstinline[language=Cypher]|MATCH (n) RETURN n|
+%%   From file: \lstinputlisting[language=Python]{code/agent.py}
+%%%%%%%%%%%%%%%%%%%
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{F4F4F4}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\definecolor{codegray}{rgb}{0.45,0.45,0.45}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{codecyan}{rgb}{0.0,0.5,0.5}
+\definecolor{pblue}{rgb}{0.13,0.13,0.8}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.75,0,0}
+\definecolor{ppurple}{rgb}{0.5,0,0.5}
+
+\renewcommand{\lstlistingname}{Listing}
+\renewcommand{\lstlistlistingname}{List of Listings}
+
+%% Default look for every listing
+\lstset{
+  basicstyle=\ttfamily\small,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  showspaces=false,
+  showtabs=false,
+  tabsize=4,
+  breaklines=true,
+  breakatwhitespace=true,
+  postbreak=\mbox{\textcolor{codegray}{$\hookrightarrow$}\space},
+  numbers=left,
+  numberstyle=\scriptsize\color{codegray},
+  stepnumber=1,
+  numbersep=8pt,
+  frame=single,
+  rulecolor=\color{black!20},
+  framesep=4pt,
+  xleftmargin=2em,
+  framexleftmargin=1.5em,
+  backgroundcolor=\color{background},
+  commentstyle=\color{pgreen}\itshape,
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  captionpos=b,
+  literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1
+}
+
+%% Cypher (Neo4j)
+\lstdefinelanguage{Cypher}{
+  morekeywords={
+    MATCH,OPTIONAL,WHERE,RETURN,WITH,UNWIND,ORDER,BY,LIMIT,SKIP,
+    CREATE,MERGE,SET,REMOVE,DELETE,DETACH,AS,AND,OR,XOR,NOT,DISTINCT,
+    CONTAINS,STARTS,ENDS,IN,IS,NULL,TRUE,FALSE,CALL,YIELD,UNION,ALL,
+    CASE,WHEN,THEN,ELSE,END,ASC,DESC,ASCENDING,DESCENDING,EXISTS,ON,
+    FOREACH,LOAD,CSV,FROM,HEADERS,INDEX,CONSTRAINT,FOR,REQUIRE,UNIQUE
+  },
+  morekeywords=[2]{
+    count,collect,sum,avg,min,max,size,length,type,labels,keys,id,
+    elementId,coalesce,toLower,toUpper,trim,split,head,last,nodes,
+    relationships,shortestPath,allShortestPaths,properties,range,toString,toInteger
+  },
+  keywordstyle=[2]\color{ppurple},
+  sensitive=false,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+}
+
+%% Python
+\lstdefinestyle{python}{
+  language=Python,
+  morekeywords={self,None,True,False,async,await,as,with,yield,lambda},
+  morekeywords=[2]{print,len,range,dict,list,str,int,float,set,tuple,isinstance,enumerate,zip},
+  keywordstyle=[2]\color{ppurple},
+}
+
+%% JSON (e.g. LLM outputs, configs)
+\lstdefinelanguage{json}{
+    keywordstyle=,
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+    morestring=[b]",
+    stringstyle=\color{darkblue},
+}
+
+%% Prompts / plain text (no highlighting)
+\lstdefinestyle{prompt}{
+  language={},
+  basicstyle=\ttfamily\small,
+  numbers=none,
+  backgroundcolor=\color{yellow!8},
+  rulecolor=\color{orange!40},
+  xleftmargin=0pt,
+  framexleftmargin=0pt,
+}
