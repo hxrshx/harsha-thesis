@@ -1,5 +1,6 @@
-# LaTeX build output
-build/
+# LaTeX build output (the compiled PDF is kept)
+build/*
+!build/main.pdf
 
 # macOS
 .DS_Store

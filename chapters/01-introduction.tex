@@ -4,8 +4,23 @@
 
 \section{Motivation}\label{sec:intro_motivation}
 
-% Tip from the THWS template: never create a single subsection.
-% If there is a 1.1.1, there must also be a 1.1.2.
+In the automotive industry, product quality is a decisive factor for customer satisfaction, brand reputation and long-term business success. Increasing product complexity, shorter innovation cycles and the ongoing transition towards electrification, software-defined vehicles and connected-car technology continue to increase the challenges associated with quality assurance. At the same time, customers expect premium-quality products and near-zero defect rates throughout the entire vehicle lifecycle.
+
+To meet these expectations, automotive manufacturers rely on extensive quality management processes that completely span the supply chain, from the initial design and development phase to production, delivery and after-sales service. A significant portion of vehicle value is created by external suppliers, making effective supplier quality management essential. Quality issues originating from supplier components can lead to production disruptions, warranty claims, customer dissatisfaction and, in severe cases, vehicle recalls.
+
+Within supplier quality management, the \ac{8d} methodology represents one of the most important problem-solving approaches. Whenever a significant quality deviation is reported, suppliers are required to document the issue using an 8D report. These reports contain detailed information regarding problem descriptions, containment actions, root cause analysis, corrective measures and effectiveness checks. As a result, thousands of valuable problem-solving experiences and lessons learned are accumulated over time.
+
+In parallel, \ac{fmea} serves as a preventive quality planning method. FMEAs are created to identify potential failure modes, evaluate associated risks and define preventive mitigation measures before failures occur. While 8D reports capture realized quality issues, FMEAs describe anticipated risks and preventive controls. Together, both artifacts represent complementary sources of organized quality knowledge.
+
+However, despite the availability of large amounts of quality-related data within modern enterprise systems, this knowledge is often underutilized and distributed across multiple databases, applications and document repositories. Information stored in 8D reports, FMEAs, supplier systems and other quality management platforms frequently exists in isolated data silos with limited semantic connections between them. As a result, identifying relationships between recurring defects, materials, suppliers, root causes and preventive risk assessments remains a largely manual and time-consuming process.
+
+This fragmented data landscape significantly limits the ability to perform advanced analytics and exploit modern \ac{ai} technologies. Traditional relational data structures are effective at storing information, but often struggle to represent the complex interconnected relationships that exist within quality management processes.
+
+\acp{kg} provide a promising approach to addressing this challenge. By explicitly modelling entities such as suppliers, materials, defects, root causes, corrective actions and FMEA risks together with their relationships, \acp{kg} create a connected data foundation that reflects the real-world dependencies within supplier quality processes. Such a connected knowledge layer enables advanced querying, holistic risk analysis and traceability across previously disconnected datasets.
+
+Furthermore, \acp{kg} establish the foundation for AI-driven quality management applications. By combining structured quality knowledge with \acp{llm} and Agentic AI systems, it becomes possible to support engineers in tasks such as root cause investigation, identification of uncovered risks, supplier risk assessment and retrieval of relevant historical problem-solving knowledge.
+
+Against this background, this thesis investigates how quality-related data from 8D reports, FMEAs and associated quality systems can be integrated into a \ac{kg}-based architecture and how such a connected knowledge foundation can support intelligent analytics and AI-assisted decision-making within supplier quality management. With large volumes of quality data already existing within BMW's quality landscape, the lack of semantic connectivity between datasets limits their reuse for cross-domain analytics and AI applications. Establishing a \ac{kg}-based quality knowledge foundation therefore represents a key step towards enabling intelligent supplier quality management and Agentic AI-driven decision support.
 
 Example of acronyms: a \ac{llm} translates a question in \ac{nl} into a query on a \ac{kg}.
 The second time, \ac{llm} and \ac{kg} appear in short form only.
